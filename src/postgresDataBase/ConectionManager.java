@@ -1,9 +1,13 @@
-import com.sun.org.apache.xpath.internal.SourceTree;
+package postgresDataBase;
+
+
 import org.xml.sax.SAXException;
+import xPath.MyReader;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.sql.*;
+
 import java.util.List;
 
 public class ConectionManager {
@@ -159,7 +163,7 @@ public class ConectionManager {
             preparedStatement.setString(1,countryName);
             ResultSet resultado = preparedStatement.executeQuery();
 
-            if(!resultado.isBeforeFirst()){
+            if(!resultado.next()){
 
             }
 
@@ -188,7 +192,7 @@ public class ConectionManager {
             preparedStatement.executeUpdate();
             preparedStatement.close();
 
-            System.out.println("City :"+cityName+" deleted");
+            System.out.println("Models.City :"+cityName+" deleted");
         } catch (SQLException e) {
             System.err.println("Error: " + e.getMessage());
         }
@@ -207,4 +211,12 @@ public class ConectionManager {
             System.err.println("Error: " + e.getMessage());
         }
     }
+
+
+
+
+
+
+
+
 }
